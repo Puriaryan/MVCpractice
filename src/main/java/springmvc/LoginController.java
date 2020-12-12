@@ -16,12 +16,9 @@ public class LoginController {
 //        return "Hello World dummy";
 //    }
 
-
-
    // private LoginService loginService = new LoginService();
 
     TodoService service = new TodoService();
-
 
     @Autowired
     private LoginService loginService;
@@ -30,17 +27,12 @@ public class LoginController {
     public String showLoginPage() {
       return "login";
 
-
     }
-
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String show() {
         return "login";
-
-
     }
-
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String handleUserLogin(ModelMap model, @RequestParam String name,
@@ -53,14 +45,7 @@ public class LoginController {
 
         model.put("name", name);
 
-
         model.addAttribute("todos", service.retrieveTodos(name));
         return "list-todos";
     }
-
-
-
-
-
-
 }
